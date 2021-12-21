@@ -3,27 +3,28 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8083/eureka
+      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8083}/eureka/
 spring:
-  application:
-    name:
-      api-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
       routes:
         - id: userModule
-          uri: lb://USER-SERVICE
+          uri: lb://user-service
           predicates:
             - Path=/user/**
         - id: accountModule
-          uri: lb://ACCOUNT-SERVICE
+          uri: lb://account-service
           predicates:
             - Path=/account/**
         - id: walletModule
-          uri: lb://WALLET-SERVICE
+          uri: lb://wallet-service
           predicates:
             - Path=/wallet/**
         - id: historyModule
-          uri: lb://HISTORY-SERVICE
+          uri: lb://history-service
           predicates:
             - Path=/history/**

@@ -1,10 +1,10 @@
 server:
   port: 8083
-spring:
-  application:
-    name: service-discovery
 eureka:
+  instance:
+    hostname: ${EUREKA_SERVICE_HOST:localhost}
   client:
     registerWithEureka: false
     fetchRegistry: false
-    service-url.defaultZone: http://localhost:8083/eureka
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
