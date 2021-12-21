@@ -1,1 +1,1 @@
-# dev.erickvieira.ppcc.configs
+# dev.erickvieira.ppcc.config

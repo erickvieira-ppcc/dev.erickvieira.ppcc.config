@@ -1,0 +1,29 @@
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka
+spring:
+  application:
+    name:
+      api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: userModule
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: accountModule
+          uri: lb://ACCOUNT-SERVICE
+          predicates:
+            - Path=/account/**
+        - id: walletModule
+          uri: lb://WALLET-SERVICE
+          predicates:
+            - Path=/wallet/**
+        - id: historyModule
+          uri: lb://HISTORY-SERVICE
+          predicates:
+            - Path=/history/**
