@@ -15,16 +15,16 @@ spring:
         - id: userModule
           uri: lb://user-service
           predicates:
-            - Path=/user/**
+            - Path=/api/user/**
         - id: accountModule
           uri: lb://account-service
           predicates:
-            - Path=/account/**
+            - Path=/api/account/**
         - id: walletModule
           uri: lb://wallet-service
           predicates:
-            - Path=/wallet/**
+            - Path=/api/wallet/**
         - id: historyModule
           uri: lb://history-service
           predicates:
-            - Path=/history/**
+            - Path=/api/history/**
