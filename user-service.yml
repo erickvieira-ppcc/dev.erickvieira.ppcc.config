@@ -4,6 +4,11 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8083}/eureka/
+spring:
+  cloud:
+    config:
+      discovery:
+        service-id: user-service
   datasource:
     driver-class-name: org.postgresql.Driver
     url: ${SPRING_DATA_SOURCE_URL:jdbc:postgresql://localhost:5432/user_db}
