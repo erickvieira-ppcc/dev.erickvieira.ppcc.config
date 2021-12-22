@@ -16,8 +16,9 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/user/**
+            - Path=/user-swagger-ui/**
           filters:
-            - RewritePath=/user/swagger-ui/(?<path>.*), /swagger-ui/$\{path}
+            - RewritePath=/user-swagger-ui/(?<path>.*), /swagger-ui/$\{path}
             - RewritePath=/user/(?<path>.*), /api/v1/user/$\{path}
         - id: accountModule
           uri: lb://account-service
