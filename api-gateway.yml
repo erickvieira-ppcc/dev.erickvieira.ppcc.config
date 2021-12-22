@@ -18,24 +18,28 @@ spring:
             - Path=/user/**
           filters:
             - RewritePath=/user/(?<path>.*), /api/v1/user/$\{path}
+            - RewritePath=/user-swagger-ui/, /swagger-ui/#/
         - id: accountModule
           uri: lb://account-service
           predicates:
             - Path=/account/**
           filters:
             - RewritePath=/account/(?<path>.*), /api/v1/account/$\{path}
+            - RewritePath=/accoun-swagger-ui/, /swagger-ui/#/
         - id: walletModule
           uri: lb://wallet-service
           predicates:
             - Path=/wallet/**
           filters:
             - RewritePath=/wallet/(?<path>.*), /api/v1/wallet/$\{path}
+            - RewritePath=/wallet-swagger-ui/, /swagger-ui/#/
         - id: historyModule
           uri: lb://history-service
           predicates:
             - Path=/history/**
           filters:
             - RewritePath=/history/(?<path>.*), /api/v1/history/$\{path}
+            - RewritePath=/history-swagger-ui/, /swagger-ui/#/
       globalcors:
         add-to-simple-url-handler-mapping: true
         corsConfigurations:
