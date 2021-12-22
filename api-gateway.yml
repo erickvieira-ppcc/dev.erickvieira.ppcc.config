@@ -15,25 +15,25 @@ spring:
         - id: userModule
           uri: lb://user-service
           predicates:
-            - Path=/api/v1/user/**
+            - Path=/user/**
           filters:
             - RewritePath=/user/(?<path>.*), /api/v1/user/$\{path}
         - id: accountModule
           uri: lb://account-service
           predicates:
-            - Path=/api/v1/account/**
+            - Path=/account/**
           filters:
             - RewritePath=/account/(?<path>.*), /api/v1/account/$\{path}
         - id: walletModule
           uri: lb://wallet-service
           predicates:
-            - Path=/api/v1/wallet/**
+            - Path=/wallet/**
           filters:
             - RewritePath=/wallet/(?<path>.*), /api/v1/wallet/$\{path}
         - id: historyModule
           uri: lb://history-service
           predicates:
-            - Path=/api/v1/history/**
+            - Path=/history/**
           filters:
             - RewritePath=/history/(?<path>.*), /api/v1/history/$\{path}
       globalcors:
