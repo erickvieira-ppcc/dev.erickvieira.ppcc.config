@@ -1,0 +1,28 @@
+server:
+  port: ${SERVER_PORT:0}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8083}/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+spring:
+  cloud:
+    config:
+      discovery:
+        service-id: wallet-service
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SPRING_DATA_SOURCE_URL:jdbc:postgresql://localhost:54322/wallet_db}
+    username: ${SPRING_DATA_SOURCE_USERNAME:ppcc}
+    password: ${SPRING_DATA_SOURCE_PASSWORD:ppcc}
+  flyway:
+    enabled: true
+    check-location: true
+    locations: classpath:migration
