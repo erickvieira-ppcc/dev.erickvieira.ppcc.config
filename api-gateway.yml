@@ -17,7 +17,7 @@ spring:
           predicates:
             - Path=/user-service/**
           filters:
-            --service RewritePath=/user/(?<path>.*), /$\{path}
+            - RewritePath=/user-service/(?<path>.*), /$\{path}
         - id: accountModule
           uri: lb://account-service
           predicates:
