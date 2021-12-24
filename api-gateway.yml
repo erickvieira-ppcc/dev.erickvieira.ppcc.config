@@ -18,18 +18,18 @@ spring:
             - Path=/user-service/**
           filters:
             - RewritePath=/user-service/(?<path>.*), /$\{path}
-        - id: accountModule
-          uri: lb://account-service
-          predicates:
-            - Path=/account-service/**
-          filters:
-            - RewritePath=/account-service/(?<path>.*), /$\{path}
         - id: walletModule
           uri: lb://wallet-service
           predicates:
             - Path=/wallet-service/**
           filters:
             - RewritePath=/wallet-service/(?<path>.*), /$\{path}
+        - id: bankingModule
+          uri: lb://banking-service
+          predicates:
+            - Path=/banking-service/**
+          filters:
+            - RewritePath=/banking-service/(?<path>.*), /$\{path}
         - id: historyModule
           uri: lb://history-service
           predicates:
