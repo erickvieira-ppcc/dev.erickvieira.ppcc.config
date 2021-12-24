@@ -15,31 +15,27 @@ spring:
         - id: userModule
           uri: lb://user-service
           predicates:
-            - Path=/user/**
+            - Path=/user-service/**
           filters:
-            - RewritePath=/user/(?<path>.*), /api/v1/user/$\{path}
-            - RewritePath=/user/swagger-ui/(?<path>.*), /swagger-ui/$\{path}
+            --service RewritePath=/user/(?<path>.*), /$\{path}
         - id: accountModule
           uri: lb://account-service
           predicates:
-            - Path=/account/**
+            - Path=/account-service/**
           filters:
-            - RewritePath=/account/(?<path>.*), /api/v1/account/$\{path}
-            - RewritePath=/account/swagger-ui/(?<path>.*), /swagger-ui/$\{path}
+            - RewritePath=/account-service/(?<path>.*), /$\{path}
         - id: walletModule
           uri: lb://wallet-service
           predicates:
-            - Path=/wallet/**
+            - Path=/wallet-service/**
           filters:
-            - RewritePath=/wallet/(?<path>.*), /api/v1/wallet/$\{path}
-            - RewritePath=/wallet/swagger-ui/(?<path>.*), /swagger-ui/$\{path}
+            - RewritePath=/wallet-service/(?<path>.*), /$\{path}
         - id: historyModule
           uri: lb://history-service
           predicates:
-            - Path=/history/**
+            - Path=/history-service/**
           filters:
-            - RewritePath=/history/(?<path>.*), /api/v1/history/$\{path}
-            - RewritePath=/history/swagger-ui/(?<path>.*), /swagger-ui/$\{path}
+            - RewritePath=/history-service/(?<path>.*), /$\{path}
       globalcors:
         add-to-simple-url-handler-mapping: true
         corsConfigurations:
