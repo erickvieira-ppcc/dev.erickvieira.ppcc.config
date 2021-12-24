@@ -19,7 +19,7 @@ spring:
         one-indexed-parameters: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${SPRING_DATA_SOURCE_URL:jdbc:postgresql://localhost:5432/user_db}
+    url: ${SPRING_DATA_SOURCE_URL:jdbc:postgresql://localhost:54321/user_db}
     username: ${SPRING_DATA_SOURCE_USERNAME:ppcc}
     password: ${SPRING_DATA_SOURCE_PASSWORD:ppcc}
   flyway:
