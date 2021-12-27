@@ -26,3 +26,11 @@ spring:
     enabled: true
     check-location: true
     locations: classpath:migration
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST:localhost}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+
+ppcc:
+  user:
+    rabbitmq:
+      queue: ${PPCC_USER_RABBITMQ_QUEUE:user.queue}
