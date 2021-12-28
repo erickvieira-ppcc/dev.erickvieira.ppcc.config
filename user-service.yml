@@ -33,6 +33,4 @@ spring:
     password: ${SPRING_RABBITMQ_PASSWORD:ppcc}
 
 ppcc:
-  user:
-    rabbitmq:
-      queue: ${PPCC_USER_RABBITMQ_QUEUE:user.queue}
+  userqueue: ${PPCC_USER_RABBITMQ_QUEUE:user.queue}

@@ -33,6 +33,4 @@ spring:
     password: ${SPRING_RABBITMQ_PASSWORD:ppcc}
 
 ppcc:
-  wallet:
-    rabbitmq:
-      queue: ${PPCC_WALLET_RABBITMQ_QUEUE:wallet.queue}
+  walletqueue: ${PPCC_WALLET_RABBITMQ_QUEUE:wallet.queue}
